@@ -1,0 +1,13 @@
+PROJECT: mymalloc
+STUDENT: Peter Basily
+RUID: 169006568
+
+//////////////////////
+
+TEST CASE D:
+
+The basis for test case D is to test how mymalloc() deals with gradually increasing sizes. By testing sizes that are not easily divisible, we tax our pointer arithmetic to make sure that our math is scalable with varying sizes. We repeat this 50 times to ensure functionality of mymalloc().
+
+TEST CASE E:
+
+The basis for test case E is to test how mymalloc() deals with larger sizes. The purpose of doing so is two-fold. First, we can ensure that we are able to allocate the entire memory array. Second, we can get a general idea of how efficient our metadata is. Since this project uses structs, there is some space inefficiencies as well as padding. Using this testcase, I was able to decrease the size of my structs by 8 bytes by choosing unsigned shorts to hold the size and isfree variables. Since isfree only needs to be 1 or 0 and our max size of memory is only 4096, an unsigned short can represent both variables with plenty of room to spare. Further efficiencies can be made by avoiding structs altogether.
